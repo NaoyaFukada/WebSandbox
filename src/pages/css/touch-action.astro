@@ -89,8 +89,8 @@ import pic from "../../images/AdobeStock_224286862.jpeg";
                         <Image
                             src={pic}
                             alt={`Demo for ${demo.name}`}
-                            width="300"
-                            height="200"
+                            width="800"
+                            height="600"
                         />
                         <div class="instruction">Try touching and moving this area</div>
                     </div>
@@ -209,12 +209,15 @@ import pic from "../../images/AdobeStock_224286862.jpeg";
         border-radius: 4px;
         overflow: hidden;
         background: rgba(0, 0, 0, 0.2);
+        width: 300px;   
+        height: 200px; 
+        margin: 0 auto; 
     }
 
     .demo-area img {
         width: 100%;
-        height: auto;
-        display: block;
+        height: 100%;
+        object-fit: cover;
     }
 
     .instruction {
