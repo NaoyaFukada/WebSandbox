@@ -54,7 +54,8 @@ const touchActionValues = [
     }
 ];
 
-import pic from "../images/AdobeStock_224286862.jpeg";
+import { Image } from 'astro:assets';
+import pic from "../../images/AdobeStock_224286862.jpeg";
 ---
 
 <Layout title="Touch-action Demonstrations">
@@ -85,8 +86,8 @@ import pic from "../images/AdobeStock_224286862.jpeg";
                     <h2>{demo.name}</h2>
                     <p>{demo.description}</p>
                     <div class={`demo-area ${demo.id}`}>
-                        <img 
-                            src="{pic}" 
+                        <Image
+                            src={pic}
                             alt={`Demo for ${demo.name}`}
                             width="300"
                             height="200"
