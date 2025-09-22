@@ -53,6 +53,8 @@ const touchActionValues = [
         description: 'Enable panning and pinch zoom gestures, but disable additional non-standard gestures such as double-tap to zoom. Disabling double-tap to zoom removes the need for browsers to delay the generation of click events when the user taps the screen.'
     }
 ];
+
+import pic from "../images/AdobeStock_224286862.jpeg";
 ---
 
 <Layout title="Touch-action Demonstrations">
@@ -84,7 +86,7 @@ const touchActionValues = [
                     <p>{demo.description}</p>
                     <div class={`demo-area ${demo.id}`}>
                         <img 
-                            src="/src/images/AdobeStock_224286862.jpeg" 
+                            src="{pic}" 
                             alt={`Demo for ${demo.name}`}
                             width="300"
                             height="200"
