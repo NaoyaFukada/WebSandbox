@@ -1,0 +1,15 @@
+1. Install Astro
+
+https://astro.build/
+
+```bash
+npm create astro@latest WebSandbox
+```
+
+2. Install tailwind css
+
+https://docs.astro.build/en/guides/styling/#tailwind
+
+```bash
+npx astro add tailwind
+```

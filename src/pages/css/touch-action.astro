@@ -1,0 +1,254 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const touchActionValues = [
+    {
+        id: 'auto',
+        name: 'touch-action: auto',
+        description: 'Default behavior - allows all touch gestures'
+    },
+    {
+        id: 'none',
+        name: 'touch-action: none',
+        description: 'Disables all browser touch actions'
+    },
+    {
+        id: 'pan-x',
+        name: 'touch-action: pan-x',
+        description: 'Enables horizontal panning only'
+    },
+    {
+        id: 'pan-left',
+        name: 'touch-action: pan-left',
+        description: 'Enables panning to the left only'
+    },
+    {
+        id: 'pan-right',
+        name: 'touch-action: pan-right',
+        description: 'Enables panning to the right only'
+    },
+    {
+        id: 'pan-y',
+        name: 'touch-action: pan-y',
+        description: 'Enables vertical panning only'
+    },
+    {
+        id: 'pan-up',
+        name: 'touch-action: pan-up',
+        description: 'Enables panning upwards only'
+    },
+    {
+        id: 'pan-down',
+        name: 'touch-action: pan-down',
+        description: 'Enables panning downwards only'
+    },
+    {
+        id: 'pinch-zoom',
+        name: 'touch-action: pinch-zoom',
+        description: 'Enables pinch-zoom gestures only'
+    },
+    {
+        id: 'manipulation',
+        name: 'touch-action: manipulation',
+        description: 'Enable panning and pinch zoom gestures, but disable additional non-standard gestures such as double-tap to zoom. Disabling double-tap to zoom removes the need for browsers to delay the generation of click events when the user taps the screen.'
+    }
+];
+---
+
+<Layout title="Touch-action Demonstrations">
+    <main>
+        <h1>Touch-action Property Demonstrations</h1>
+        <p class="description">
+            Explore different touch-action values and their effects on touch interactions.
+            Try these demos on a touch-enabled device.
+        </p>
+
+       <section class="gesture-explanation">
+            <h2>Understanding Touch Gestures</h2>
+            <div class="gesture-types">
+                <div class="gesture-card">
+                    <h3>Panning</h3>
+                    <p>Single-finger movement across the screen to scroll.</p>
+                </div>
+                <div class="gesture-card">
+                    <h3>Pinching</h3>
+                    <p>Two-finger gesture to zoom in and out.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="demo-grid">
+            {touchActionValues.map(demo => (
+                <div class="demo-card">
+                    <h2>{demo.name}</h2>
+                    <p>{demo.description}</p>
+                    <div class={`demo-area ${demo.id}`}>
+                        <img 
+                            src="/src/images/AdobeStock_224286862.jpeg" 
+                            alt={`Demo for ${demo.name}`}
+                            width="300"
+                            height="200"
+                        />
+                        <div class="instruction">Try touching and moving this area</div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        color: #e2e8f0;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        background: linear-gradient(to right, #60a5fa, #34d399);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .description {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        opacity: 0.9;
+        line-height: 1.6;
+    }
+
+    .gesture-explanation {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 0 auto 4rem;
+        max-width: 900px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gesture-explanation h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+        color: #60a5fa;
+        text-align: center;
+    }
+
+    .gesture-types {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .gesture-card {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .gesture-card h3 {
+        color: #34d399;
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .gesture-card p {
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .gesture-types {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .gesture-explanation {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .demo-grid {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .demo-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 1.5rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .demo-card h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: #60a5fa;
+    }
+
+    .demo-card p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+    }
+
+    .demo-area {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .demo-area img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .instruction {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    /* Touch-action specific styles */
+    .auto { touch-action: auto; }
+    .none { touch-action: none; }
+    .pan-x { touch-action: pan-x; }
+    .pan-left { touch-action: pan-left; }
+    .pan-right { touch-action: pan-right; }
+    .pan-y { touch-action: pan-y; }
+    .pan-up { touch-action: pan-up; }
+    .pan-down { touch-action: pan-down; }
+    .pinch-zoom { touch-action: pinch-zoom; }
+    .manipulation {touch-action: manipulation}
+
+    @media (max-width: 768px) {
+        main {
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .demo-grid {
+            gap: 1rem;
+        }
+    }
+</style>
